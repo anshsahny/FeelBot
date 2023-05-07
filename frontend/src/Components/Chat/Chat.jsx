@@ -3,11 +3,22 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
+import UserList from "../UserList/UserList";
+import Sentiment from "../Sentiment/Sentiment";
+import Chatbox from "../Chatbox/Chatbox";
+
 import './Chat.css'
 
 const Chat = props => {
     const [signedIn, setSignedIn] = useState(false)
     const [username, setUsername] = useState('')
+    const [message, setMessage] = useState('')
+
+    const sendMessage = e => {
+        console.log('send message')
+        e.preventDefault()
+        setMessage('')
+    }
 
     return (
         <div className="main-section">
@@ -17,15 +28,15 @@ const Chat = props => {
                         <h3>Welcome, {username}!</h3>
                         <Row md={2}>
                             <Col>
-                                {/* Add UserLists Component */}
+                                <UserList />
                             </Col>
                             <Col>
-                                {/* Add Sentiment Component */}
+                                <Sentiment />
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                {/* Add Chatbox Component */}
+                                <Chatbox message={message} setMessage={setMessage} sendMessage={sendMessage} />
                             </Col>
                         </Row>
                     </>
