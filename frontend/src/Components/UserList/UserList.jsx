@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const UserList = props => {
     return (
         <div className="card">
             <h5 className="invert-color">Users</h5>
             <div className="scrollable">
-                {/* map all users recieved from backend here */}
+                {props.users && props.users.map((user, index) => {
+                    return (<div key={index} className="invert-color">{user}</div>)
+                })}
             </div>
         </div>
     )

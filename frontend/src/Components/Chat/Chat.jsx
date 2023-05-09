@@ -12,7 +12,6 @@ import io from 'socket.io-client'
 import './Chat.css'
 
 const ENDPOINT = 'http://localhost:8000/'
-console.log(ENDPOINT)
 
 const Chat = props => {
     const [signedIn, setSignedIn] = useState(false)
@@ -31,7 +30,6 @@ const Chat = props => {
         })
 
         socketRef.current.on('get users', users => {
-            console.log(users)
             setUsers(users)
         })
     }, [])
